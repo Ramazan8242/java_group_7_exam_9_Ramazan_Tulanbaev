@@ -24,7 +24,7 @@ public class SubjectController {
     private final ModelMapper mapper = new ModelMapper();
 
     @GetMapping("/")
-    public String index(Model model, @PageableDefault(value = 1) Pageable pageable) {
+    public String index(Model model, @PageableDefault(value = 2) Pageable pageable) {
         final Page<Subject> places = this.subjectService.getSubjects(pageable).map(place -> mapper.map(place, Subject.class));
         model.addAttribute("subjects", places.getContent());
         model.addAttribute("subj", places.getPageable());
