@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -23,7 +24,13 @@ public class Answer {
     @ManyToOne
     private User user;
 
-    String text;
+    private String text;
 
     private LocalDate localDate;
+
+    public Answer(User user, String text, LocalDate localDate) {
+        this.user = user;
+        this.text = text;
+        this.localDate = localDate;
+    }
 }

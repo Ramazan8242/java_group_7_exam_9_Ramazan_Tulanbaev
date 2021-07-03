@@ -13,4 +13,9 @@
             </table>
         </#list>
     </#if>
+
+    <form action="/addAnswer" method="post">
+        <label><input type="text" name="text" ></label>
+        <button type="submit">Submit</button>
+    </form>
 </@main.renderWith>
