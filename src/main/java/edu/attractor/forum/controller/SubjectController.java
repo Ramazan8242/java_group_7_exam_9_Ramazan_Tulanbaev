@@ -30,7 +30,6 @@ public class SubjectController {
     private final SubjectService subjectService;
     private final SubjectRepository subjectRepository;
     private final UserService userService;
-    private final UserRepository userRepository;
     private final ModelMapper mapper = new ModelMapper();
 
     @GetMapping("/")

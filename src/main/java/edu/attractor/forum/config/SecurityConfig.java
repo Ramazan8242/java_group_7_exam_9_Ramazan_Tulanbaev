@@ -42,6 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated();
 
         http.authorizeRequests()
+                .antMatchers("/addSubject")
+                .authenticated();
+
+        http.authorizeRequests()
                 .anyRequest()
                 .permitAll();
     }

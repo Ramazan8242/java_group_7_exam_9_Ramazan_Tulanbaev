@@ -1,7 +1,5 @@
-<#-- импортируем основной шаблон-контейнер который содержит в себе разметку для основной структуры страницы -->
 <#import "partials/main.ftlh" as main />
 
-<#-- обрабатываем его, и передаём ему список скриптов, которые необходимо подключить-->
 <@main.renderWith>
     <table border="1" width="100%" cellpadding="5">
         <tr>
@@ -13,10 +11,10 @@
         <#if subjects??>
             <#list subjects as subject>
                 <tr>
-                    <th><a href="">${subject.events}</a></th>
+                    <th><a href="/addAnswer">${subject.events}</a></th>
                     <th>${subject.localDate.now()}</th>
                     <th><a href="/profile">${subject.user.username}</a></th>
-                    <th><a href="">ответить</a></th>
+                    <th><a href="/addAnswer">ответить</a></th>
                 </tr>
             </#list>
         </#if>
