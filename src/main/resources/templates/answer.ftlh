@@ -8,6 +8,8 @@
         <#list answers as answer>
             <table border="1" width="100%" cellpadding="5">
                 <th>${answer.text}</th>
+                <th>${answer.user.username}</th>
+                <th>${answer.localDate}</th>
             </table>
         </#list>
     </#if>

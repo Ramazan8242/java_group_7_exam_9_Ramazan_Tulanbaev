@@ -1,6 +1,8 @@
 package edu.attractor.forum.service;
 
+import edu.attractor.forum.exeption.UserNotFoundException;
 import edu.attractor.forum.model.Subject;
+import edu.attractor.forum.model.User;
 import edu.attractor.forum.repository.SubjectRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -15,5 +17,4 @@ public class SubjectService {
     public Page<Subject> getSubjects(Pageable pageable) {
         return this.subjectRepository.findAll(pageable);
     }
-
 }

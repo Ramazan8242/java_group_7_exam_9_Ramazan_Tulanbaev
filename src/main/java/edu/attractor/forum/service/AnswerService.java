@@ -15,9 +15,7 @@ public class AnswerService {
     private final AnswerRepository answerRepository;
     private final SubjectRepository subjectRepository;
 
-    public Page<Answer> getAnswer(Pageable pageable) {
-        return this.answerRepository.findAll(pageable);
-    }
+    public Page<Answer> getAnswer(Pageable pageable) { return this.answerRepository.findAll(pageable); }
     public Subject getById(Integer id){
         return subjectRepository.getById(id);
     }
