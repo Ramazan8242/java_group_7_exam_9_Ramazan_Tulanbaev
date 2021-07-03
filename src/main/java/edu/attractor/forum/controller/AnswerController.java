@@ -26,8 +26,9 @@ public class AnswerController {
 
     @GetMapping("/addAnswer")
     public String index(Model model, @PageableDefault(value = 15) Pageable pageable,Integer id) {
-//       Page<Answer> places = this.answerService.getAnswer(pageable).map(place -> mapper.map(place, Answer.class));
+       Page<Answer> places = this.answerService.getAnswer(pageable).map(place -> mapper.map(place, Answer.class));
         Subject subject =  answerService.getById(id);
+        model.addAttribute("answers",places.getContent());
         model.addAttribute("subject", subject);
         model.addAttribute("answer", subject);
         return "answer";

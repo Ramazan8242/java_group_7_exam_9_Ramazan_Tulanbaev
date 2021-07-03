@@ -10,13 +10,11 @@
             <th>Ответ</th>
         </tr>
         <#if subjects??>
-            <#list subjects as subject>
-                <tr>
+            <#list subjects as subject><tr>
                     <th>${subject.events}</th>
                     <th>${subject.localDate.now()}</th>
                     <th><a href="/profile">${subject.user.username}</a></th>
-                    <th><form action="/addAnswer"><input name="id" value="${subject.id}" hidden><button type="submit"> ответить </button></form></th>
-                </tr>
+                    <th><form action="/addAnswer"><input name="id" value="${subject.id}" hidden><button type="submit"> ответить </button></form></th></tr>
             </#list>
         </#if>
     </table>

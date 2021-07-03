@@ -7,9 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>${title}</title>
-        <#list styles as styleSource>
-            <link rel="stylesheet" href="${styleSource}">
-        </#list>
+        <#list styles as styleSource><link rel="stylesheet" href="${styleSource}"></#list>
     </head>
     <body>
     <header>
@@ -50,12 +48,12 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                                <form action="/logout" method="post">
-                                    <#if _csrf??>
-                                        <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
-                                    </#if>
-                                    <a class="nav-link active" aria-current="page" >Выйти</a>
-                                </form>
+                            <form action="/logout" method="post">
+                                <#if _csrf??>
+                                    <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
+                                </#if>
+                                <a class="nav-link active" aria-current="page" >Выйти</a>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -70,13 +68,9 @@
         </nav>
     </header>
     <br/><br/><br/>
-
     <div class="container"><#nested></div>
 
-    <#list scripts as scriptSource>
-        <script src="${scriptSource}"></script>
-    </#list>
-
+    <#list scripts as scriptSource><script src="${scriptSource}"></script></#list>
     </body>
     </html>
 

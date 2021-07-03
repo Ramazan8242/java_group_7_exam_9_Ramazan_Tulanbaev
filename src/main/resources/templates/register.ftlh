@@ -1,9 +1,7 @@
 <#import "partials/main.ftlh" as main />
 
 <@main.renderWith>
-    <div>
     <form action="/register" method="post">
-
         <#if _csrf??>
             <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
         </#if>
@@ -38,8 +36,5 @@
             </#if>
         </div>
     </form>
-    </div>
-    <div class="bottom-box">
-        <a href="/">На главную страницу</a>
-    </div>
+    <div class="bottom-box"><a href="/">На главную страницу</a></div>
 </@main.renderWith>
