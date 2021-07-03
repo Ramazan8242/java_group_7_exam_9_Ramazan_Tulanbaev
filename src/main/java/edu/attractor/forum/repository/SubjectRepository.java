@@ -1,4 +1,6 @@
 package edu.attractor.forum.repository;
 
-public interface SubjectRepository {
-}
+import edu.attractor.forum.model.Subject;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SubjectRepository extends JpaRepository<Subject,Integer> {}
