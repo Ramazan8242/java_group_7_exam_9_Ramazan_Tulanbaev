@@ -1,7 +1,10 @@
 package edu.attractor.forum.controller;
 
+import edu.attractor.forum.exeption.UserRegisterForm;
 import edu.attractor.forum.model.Subject;
+import edu.attractor.forum.model.User;
 import edu.attractor.forum.repository.SubjectRepository;
+import edu.attractor.forum.repository.UserRepository;
 import edu.attractor.forum.service.SubjectService;
 import edu.attractor.forum.service.UserService;
 import lombok.AllArgsConstructor;
@@ -27,6 +30,7 @@ public class SubjectController {
     private final SubjectService subjectService;
     private final SubjectRepository subjectRepository;
     private final UserService userService;
+    private final UserRepository userRepository;
     private final ModelMapper mapper = new ModelMapper();
 
     @GetMapping("/")
@@ -38,21 +42,15 @@ public class SubjectController {
     }
 
     @GetMapping("/addSubject")
-    private String subject(Model model, Principal principal,Subject subject){
-        var user = userService.getByEmail(principal.getName());
-        model.addAttribute("dtos", user);
-
-        LocalDate date = LocalDate.now();
-        Subject subject1 = new Subject(subject.getEvents(),date,subject.getUser());
-        model.addAttribute("subject",subject1);
+    private String subject(){
         return "subject";
     }
 
     @PostMapping("/addSubject")
-    private String addSubject(Model model , Subject subject){
+    private String addSubject(Subject subject, Principal principal){
         LocalDate date = LocalDate.now();
-        Subject subject1 = new Subject(subject.getEvents(),date);
-        model.addAttribute(subject1);
+        User user = userService.getByEmail(principal.getName());
+        Subject subject1 = new Subject(subject.getEvents(),date,user);
         subjectRepository.save(subject1);
         return "redirect:/";
     }

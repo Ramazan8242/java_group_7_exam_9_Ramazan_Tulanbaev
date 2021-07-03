@@ -33,10 +33,10 @@ public class UserService {
         return UserResponseDTO.from(user);
     }
 
-    public UserResponseDTO getByEmail(String email) {
+    public User getByEmail(String email) {
         var user = repository.findByEmail(email)
                 .orElseThrow(UserNotFoundException::new);
 
-        return UserResponseDTO.from(user);
+        return user;
     }
 }

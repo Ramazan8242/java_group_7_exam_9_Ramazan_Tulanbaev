@@ -13,9 +13,9 @@
         <#if subjects??>
             <#list subjects as subject>
                 <tr>
-                    <th>${subject.events}</th>
-                    <th>${subject.localDate}</th>
-                    <th>${subject.user.username}</th>
+                    <th><a href="">${subject.events}</a></th>
+                    <th>${subject.localDate.now()}</th>
+                    <th><a href="/profile">${subject.user.username}</a></th>
                     <th><a href="">ответить</a></th>
                 </tr>
             </#list>

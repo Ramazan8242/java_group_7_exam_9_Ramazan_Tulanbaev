@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,14 +29,12 @@ public class Subject {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
+    @OneToMany(mappedBy = "subject")
+    private List<Answer> answer;
+
     public Subject(@NotBlank @Size(min = 1, max = 128) String events, LocalDate localDate, User user) {
         this.events = events;
         this.localDate = localDate;
         this.user = user;
-    }
-
-    public Subject(@NotBlank @Size(min = 1, max = 128) String events, LocalDate localDate) {
-        this.events = events;
-        this.localDate = localDate;
     }
 }
