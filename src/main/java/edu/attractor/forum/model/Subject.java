@@ -33,4 +33,9 @@ public class Subject {
         this.localDate = localDate;
         this.user = user;
     }
+
+    public Subject(@NotBlank @Size(min = 1, max = 128) String events, LocalDate localDate) {
+        this.events = events;
+        this.localDate = localDate;
+    }
 }

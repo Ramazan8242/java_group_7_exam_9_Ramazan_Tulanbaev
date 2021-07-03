@@ -23,8 +23,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/profile")
-    public String pageCustomerProfile(Model model, Principal principal)
-    {
+    public String pageCustomerProfile(Model model, Principal principal) {
         var user = userService.getByEmail(principal.getName());
         model.addAttribute("dto", user);
         return "profile";

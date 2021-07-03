@@ -8,6 +8,7 @@
             <th>Событие</th>
             <th>Дата</th>
             <th>Пользователь</th>
+            <th>Ответ</th>
         </tr>
         <#if subjects??>
             <#list subjects as subject>
@@ -15,6 +16,7 @@
                     <th>${subject.events}</th>
                     <th>${subject.localDate}</th>
                     <th>${subject.user.username}</th>
+                    <th><a href="">ответить</a></th>
                 </tr>
             </#list>
         </#if>
